@@ -1,6 +1,32 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   box-sizing: border-box;
+
+  background-color: #141414;
+  color: #e5e5e5;
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+h3 {
+  font-size: 1.17rem;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+/* scrollbar styles */
+::-webkit-scrollbar {
+  width: 10px;
 }
