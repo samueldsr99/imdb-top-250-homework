@@ -1,4 +1,4 @@
-type ClsxArg = string | { [key: string]: boolean } | undefined | null;
+type ClsxArg = string | { [key: string]: boolean } | false | undefined | null;
 
 /**
  * A simple utility function to merge class names together.
