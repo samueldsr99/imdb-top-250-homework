@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Link } from "next-view-transitions";
 
 import { ImdbMovie } from "@/app/api/db";
+import StarsRating from "@/ui/components/stars-rating/stars-rating";
 
 import * as styles from "./movie-card.css";
 
@@ -37,6 +38,8 @@ export default function MovieCard({ movie }: MovieCardProps) {
         </div>
 
         <p className={styles.description} dangerouslySetInnerHTML={{ __html: movie.desc }} />
+
+        <StarsRating rating={movie.rating} maxRating={10} />
 
         <p className={styles.year}>{movie.year}</p>
       </div>

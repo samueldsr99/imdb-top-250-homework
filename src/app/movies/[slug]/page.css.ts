@@ -62,3 +62,10 @@ export const genre = style({
 export const bullet = style({
   color: "darkgray",
 });
+
+export const rating = style({
+  display: "flex",
+  alignItems: "baseline",
+  gap: 4,
+  paddingTop: 20,
+});

@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { getImdbMovieBySlug } from "@/lib/api/imdb";
+import StarsRating from "@/ui/components/stars-rating/stars-rating";
 import { ExternalLinkIcon } from "@/ui/icons";
 
 import * as styles from "./page.css";
@@ -68,8 +69,13 @@ export default async function MoviePage({ params }: MoviePageProps) {
             </Link>
           ))}
         </div>
+
+        <div className={styles.rating}>
+          <span>Rating ({movie.rating} / 10):</span>
+          <StarsRating rating={movie.rating} maxRating={10} />
+        </div>
+
         <p className={styles.year}>{movie.year}</p>
-        <p>{movie.rating}</p>
       </article>
     </div>
   );
