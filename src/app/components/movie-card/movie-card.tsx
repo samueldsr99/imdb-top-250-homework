@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 import { ImdbMovie } from "@/app/api/db";
 
@@ -10,8 +11,10 @@ export interface MovieCardProps {
 }
 
 export default function MovieCard({ movie }: MovieCardProps) {
+  const slug = movie.name.toLowerCase().replace(/ /g, "-");
+
   return (
-    <article className={styles.root}>
+    <Link className={styles.root} href={`/movies/${slug}`}>
       <Image className={styles.image} src={movie.image_url} alt={movie.name} width={200} height={300} />
 
       <div className={styles.metadataContainer}>
@@ -30,6 +33,6 @@ export default function MovieCard({ movie }: MovieCardProps) {
 
         <p className={styles.year}>{movie.year}</p>
       </div>
-    </article>
+    </Link>
   );
 }
