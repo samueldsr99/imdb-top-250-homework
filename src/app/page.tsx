@@ -17,7 +17,7 @@ export default async function HomePage({ searchParams }: HomePageProps) {
 
   return (
     <div className={styles.root}>
-      <h1 className={styles.title}>Top 250 IMDb Movies</h1>
+      {!q && <h1 className={styles.title}>Top 250 IMDb Movies</h1>}
       <SearchInput placeholder="Search movies..." defaultValue={q} />
 
       {count === 0 ? (

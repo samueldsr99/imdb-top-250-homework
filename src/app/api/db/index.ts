@@ -3,13 +3,17 @@ import { ImdbMovie } from "./types";
 
 class ImdbTop250 {
   findAll(q?: string): Array<ImdbMovie> {
+    const sortByRating = (a: ImdbMovie, b: ImdbMovie) => a.rating - b.rating;
+
     if (!q) {
-      return data;
+      const sorted = [...data];
+      sorted.sort(sortByRating);
+      return sorted;
     }
 
     const query = q.toLowerCase();
 
-    return data.filter((movie) => {
+    const filtered = data.filter((movie) => {
       if (movie.name.toLowerCase().includes(query)) {
         return true;
       }
@@ -26,6 +30,9 @@ class ImdbTop250 {
         return true;
       }
     });
+    filtered.sort(sortByRating);
+
+    return filtered;
   }
 
   findBySlug(slug: string): ImdbMovie | undefined {
