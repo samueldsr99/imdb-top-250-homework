@@ -26,6 +26,11 @@ p {
   margin: 0;
 }
 
+a {
+  color: #0077cc;
+  text-decoration: none;
+}
+
 /* scrollbar styles */
 ::-webkit-scrollbar {
   width: 10px;
