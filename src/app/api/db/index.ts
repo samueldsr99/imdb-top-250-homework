@@ -2,8 +2,30 @@ import data from "./data.json";
 import { ImdbMovie } from "./types";
 
 class ImdbTop250 {
-  findAll(): Array<ImdbMovie> {
-    return data;
+  findAll(q?: string): Array<ImdbMovie> {
+    if (!q) {
+      return data;
+    }
+
+    const query = q.toLowerCase();
+
+    return data.filter((movie) => {
+      if (movie.name.toLowerCase().includes(query)) {
+        return true;
+      }
+      if (movie.desc.toLowerCase().includes(query)) {
+        return true;
+      }
+      if (movie.genre.some((genre) => genre.toLowerCase().includes(query))) {
+        return true;
+      }
+      if (movie.actors.some((actor) => actor.toLowerCase().includes(query))) {
+        return true;
+      }
+      if (movie.directors.some((director) => director.toLowerCase().includes(query))) {
+        return true;
+      }
+    });
   }
 
   findBySlug(slug: string): ImdbMovie | undefined {

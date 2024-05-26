@@ -9,6 +9,7 @@
   "parserOptions": { "ecmaVersion": "latest", "sourceType": "module" },
   "plugins": ["prettier", "react-refresh", "simple-import-sort"],
   "rules": {
+    "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
     "react/jsx-uses-react": "off",
     "prettier/prettier": "warn",
     "no-console": "warn",
