@@ -29,7 +29,14 @@ export default async function MoviePage({ params }: MoviePageProps) {
         priority
       />
       <article className={styles.content}>
-        <h2 className={styles.title}>{movie.name}</h2>
+        <div className={styles.header}>
+          <h2 className={styles.title}>{movie.name}</h2>
+
+          <Link target="_blank" href={`https://m.imdb.com/${movie.imdb_url}`} className={styles.imdbLink}>
+            (See in IMDB)
+            <ExternalLinkIcon />
+          </Link>
+        </div>
 
         <div className={styles.genre}>
           {movie.genre.map((genre, index) => (
