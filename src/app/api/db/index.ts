@@ -6,8 +6,12 @@ class ImdbTop250 {
     return data;
   }
 
-  findByName(name: string): ImdbMovie | undefined {
-    return data.find((movie) => movie.name === name);
+  findBySlug(slug: string): ImdbMovie | undefined {
+    const getSlug = (name: string) => name.toLowerCase().replace(/ /g, "-");
+
+    return data.find((movie) => {
+      return getSlug(movie.name) === slug;
+    });
   }
 }
 

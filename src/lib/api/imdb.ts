@@ -8,3 +8,11 @@ export const getImdbTop250 = async (): Promise<ImdbTop250Response> => {
 
   return data;
 };
+
+export const getImdbMovieBySlug = async (slug: string) => {
+  const response = await fetch(`${BASE_URL}/api/imdb-top-250/${slug}`);
+
+  const data = await response.json();
+
+  return data;
+};
