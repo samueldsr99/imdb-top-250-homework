@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 
-import db from "@/app/api/db";
+import db, { ImdbMovie } from "@/app/api/db";
+
+export type ImdbMovieResponse = ImdbMovie;
 
 export async function GET(request: NextRequest) {
   const url = new URL(request.url);
