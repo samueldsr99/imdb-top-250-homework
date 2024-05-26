@@ -8,7 +8,7 @@ export default async function Home() {
   const imdbTop250 = await getImdbTop250();
 
   return (
-    <main className={styles.container}>
+    <>
       <h1 className={styles.title}>Top 250 Movies</h1>
 
       <section id="movies" className={styles.grid}>
@@ -16,6 +16,6 @@ export default async function Home() {
           <MovieCard key={movie.name} movie={movie} />
         ))}
       </section>
-    </main>
+    </>
   );
 }

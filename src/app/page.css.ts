@@ -1,9 +1,5 @@
 import { style } from "@vanilla-extract/css";
 
-export const container = style({
-  padding: 10 * 4,
-});
-
 export const title = style({
   fontSize: 44,
   fontWeight: "bold",
