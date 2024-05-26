@@ -13,7 +13,6 @@ export const title = style({
 
 export const grid = style({
   marginTop: 10 * 4,
-  padding: 4 * 4,
   display: "grid",
   gap: 10 * 4,
   gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
