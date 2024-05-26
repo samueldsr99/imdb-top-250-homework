@@ -15,9 +15,16 @@ export default async function MoviePage({ params }: MoviePageProps) {
 
   return (
     <div className={styles.root}>
-      <Image src={movie.image_url} alt={movie.name} width={200} height={300} className={styles.image} />
+      <Image
+        src={movie.image_url}
+        alt={movie.name}
+        width={200}
+        height={300}
+        className={styles.image}
+        style={{ viewTransitionName: `movie-image-${slug}` }}
+      />
       <article className={styles.content}>
-        <h1>{movie.name}</h1>
+        <h2>{movie.name}</h2>
         <p>{movie.year}</p>
         <p>{movie.rating}</p>
         <p>{movie.votes}</p>
