@@ -2,8 +2,8 @@ import { Fragment } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-import ExternalLinkIcon from "@/app/components/icons/external-link-icon";
 import { getImdbMovieBySlug } from "@/lib/api/imdb";
+import { ExternalLinkIcon } from "@/ui/icons";
 
 import * as styles from "./page.css";
 
