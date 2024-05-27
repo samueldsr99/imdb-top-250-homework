@@ -8,14 +8,10 @@ export interface ImdbTop250Request {
 export type ImdbTop250Response = Array<ImdbMovie>;
 
 export async function GET(request: NextRequest) {
-  try {
-    const url = new URL(request.url);
-    const q = url.searchParams.get("q") ?? undefined;
+  const url = new URL(request.url);
+  const q = url.searchParams.get("q") ?? undefined;
 
-    const data = await db.ImdbTop250.findAll(q);
+  const data = await db.ImdbTop250.findAll(q);
 
-    return NextResponse.json(data);
-  } catch (error) {
-    return NextResponse.error();
-  }
+  return NextResponse.json(data);
 }
