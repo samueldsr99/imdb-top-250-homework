@@ -1,4 +1,5 @@
 import { Fragment } from "react";
+import { Metadata } from "next";
 import Link from "next/link";
 
 import { getImdbMovieBySlug } from "@/lib/api/imdb";
@@ -14,7 +15,7 @@ export interface MoviePageProps {
   params: { slug: string };
 }
 
-export const GenreSection = ({ genre }: { genre: string[] }) => (
+const GenreSection = ({ genre }: { genre: string[] }) => (
   <div className={styles.genre}>
     {genre.map((genre, index) => (
       <Fragment key={genre}>
@@ -33,6 +34,33 @@ const NotFoundLayout = () => (
     </Link>
   </div>
 );
+
+export async function generateMetadata({ params }: MoviePageProps): Promise<Metadata> {
+  const slug = decodeURIComponent(params.slug);
+
+  const movie = await getImdbMovieBySlug(slug);
+
+  const title = movie ? movie.name : "Movie not found";
+  const description = movie ? movie.desc : "The movie you are looking for was not found";
+  const image = movie ? movie.image_url : "/images/noise.jpeg";
+
+  if (!movie) {
+    return {
+      title,
+      description,
+      openGraph: {
+        title,
+        description,
+        images: [{ url: image, width: 400, height: 600 }],
+      },
+    };
+  }
+
+  return {
+    title: movie.name,
+    description: movie.desc,
+  };
+}
 
 export default async function MoviePage({ params }: MoviePageProps) {
   const slug = decodeURIComponent(params.slug);

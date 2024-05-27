@@ -1,4 +1,5 @@
 import { Suspense } from "react";
+import { Metadata } from "next";
 
 import MoviesResults from "./components/results";
 import SearchInput from "./components/search-input";
@@ -9,6 +10,11 @@ import * as styles from "./page.css";
 export interface HomePageProps {
   searchParams: Partial<{ q: string }>;
 }
+
+export const metadata: Metadata = {
+  title: "Top 250 IMDb Movies",
+  description: "Discover the top 250 IMDb movies",
+};
 
 export default async function HomePage({ searchParams }: HomePageProps) {
   const q = searchParams.q;
