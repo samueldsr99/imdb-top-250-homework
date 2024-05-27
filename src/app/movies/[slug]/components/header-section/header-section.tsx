@@ -6,7 +6,7 @@ import FavoriteSection from "./favorite-section";
 
 import * as styles from "./header-section.css";
 
-export default function HeaderSection({ title, imdbUrl }: { title: string; imdbUrl: string }) {
+export default function HeaderSection({ title, slug, imdbUrl }: { title: string; slug: string; imdbUrl: string }) {
   return (
     <div className={styles.header}>
       <div>
@@ -18,7 +18,7 @@ export default function HeaderSection({ title, imdbUrl }: { title: string; imdbU
         </Link>
       </div>
 
-      <FavoriteSection slug={title} />
+      <FavoriteSection slug={slug} />
     </div>
   );
 }

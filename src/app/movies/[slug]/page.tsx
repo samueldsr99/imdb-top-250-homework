@@ -41,7 +41,7 @@ export default async function MoviePage({ params }: MoviePageProps) {
         priority
       />
       <article className={styles.content}>
-        <HeaderSection title={movie.name} imdbUrl={movie.imdb_url} />
+        <HeaderSection title={movie.name} slug={slug} imdbUrl={movie.imdb_url} />
         <GenreSection genre={movie.genre} />
         <p className={styles.description}>{movie.desc}</p>
         <PeopleLinksSection title="Actors" people={movie.actors} />
