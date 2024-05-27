@@ -14,23 +14,6 @@ export const content = style({
   flex: 1,
 });
 
-export const header = style({
-  display: "inline-flex",
-  alignItems: "baseline",
-  gap: 8,
-});
-
-export const title = style({
-  fontSize: 56,
-  fontWeight: "bold",
-  margin: 0,
-});
-
-export const imdbLink = style({
-  fontSize: 20,
-  color: "gray",
-});
-
 export const description = style({
   maxWidth: 600,
   paddingTop: 20,
