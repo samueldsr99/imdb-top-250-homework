@@ -1,8 +1,8 @@
 import { Fragment } from "react";
-import Image from "next/image";
 import { Link } from "next-view-transitions";
 
 import { ImdbMovie } from "@/app/api/db";
+import ImageWithFallback from "@/ui/components/image-with-fallback/image-with-fallback";
 import StarsRating from "@/ui/components/stars-rating/stars-rating";
 
 import * as styles from "./movie-card.css";
@@ -16,9 +16,10 @@ export default function MovieCard({ movie }: MovieCardProps) {
 
   return (
     <Link className={styles.root} href={`/movies/${slug}`}>
-      <Image
+      <ImageWithFallback
         className={styles.image}
         src={movie.image_url}
+        fallbackSrc="/images/noise.jpeg"
         alt={movie.name}
         width={200}
         height={300}

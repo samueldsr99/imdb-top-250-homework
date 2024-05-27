@@ -1,7 +1,7 @@
 import { Fragment } from "react";
-import Image from "next/image";
 
 import { getImdbMovieBySlug } from "@/lib/api/imdb";
+import ImageWithFallback from "@/ui/components/image-with-fallback/image-with-fallback";
 import StarsRating from "@/ui/components/stars-rating";
 
 import HeaderSection from "./components/header-section";
@@ -31,9 +31,10 @@ export default async function MoviePage({ params }: MoviePageProps) {
 
   return (
     <div className={styles.root}>
-      <Image
+      <ImageWithFallback
         className={styles.image}
         src={movie.image_url}
+        fallbackSrc="/images/noise.jpeg"
         alt={movie.name}
         width={400}
         height={600}
