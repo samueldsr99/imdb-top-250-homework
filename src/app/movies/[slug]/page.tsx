@@ -1,4 +1,5 @@
 import { Fragment } from "react";
+import Link from "next/link";
 
 import { getImdbMovieBySlug } from "@/lib/api/imdb";
 import ImageWithFallback from "@/ui/components/image-with-fallback/image-with-fallback";
@@ -24,10 +25,23 @@ export const GenreSection = ({ genre }: { genre: string[] }) => (
   </div>
 );
 
+const NotFoundLayout = () => (
+  <div className={styles.notFound}>
+    <h1 className={styles.notFoundTitle}>Movie not found</h1>
+    <Link className={styles.notFoundLink} href="/">
+      Go home
+    </Link>
+  </div>
+);
+
 export default async function MoviePage({ params }: MoviePageProps) {
   const slug = decodeURIComponent(params.slug);
 
   const movie = await getImdbMovieBySlug(slug);
+
+  if (!movie) {
+    return <NotFoundLayout />;
+  }
 
   return (
     <div className={styles.root}>

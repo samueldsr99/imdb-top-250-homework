@@ -46,3 +46,26 @@ export const rating = style({
   gap: 4,
   paddingTop: 20,
 });
+
+export const notFound = style({
+  marginTop: 32,
+  paddingLeft: 16,
+  paddingRight: 16,
+
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  gap: 24,
+});
+
+export const notFoundTitle = style({
+  fontSize: 48,
+  textAlign: "center",
+});
+
+export const notFoundLink = style({
+  textDecoration: "underline",
+  fontSize: 24,
+  textAlign: "center",
+  color: "white",
+});

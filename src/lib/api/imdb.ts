@@ -15,10 +15,18 @@ export const getImdbTop250 = async ({ q }: ImdbTop250Request = {}): Promise<Imdb
   return data;
 };
 
-export const getImdbMovieBySlug = async (slug: string): Promise<ImdbMovieResponse> => {
-  const response = await fetch(`${BASE_URL}/api/imdb-top-250/${slug}`);
+export const getImdbMovieBySlug = async (slug: string): Promise<ImdbMovieResponse | undefined> => {
+  try {
+    const response = await fetch(`${BASE_URL}/api/imdb-top-250/${slug}`);
 
-  const data = await response.json();
+    if (response.status === 404) {
+      return undefined;
+    }
 
-  return data;
+    const data = await response.json();
+
+    return data;
+  } catch (error) {
+    return undefined;
+  }
 };
