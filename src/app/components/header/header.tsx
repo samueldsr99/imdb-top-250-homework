@@ -6,10 +6,12 @@ import * as styles from "./header.css";
 
 export default function Header() {
   return (
-    <header className={styles.root}>
-      <Link href="/" className={styles.link}>
-        <Logo />
-      </Link>
+    <header>
+      <nav className={styles.root}>
+        <Link href="/" className={styles.link}>
+          <Logo />
+        </Link>
+      </nav>
     </header>
   );
 }
