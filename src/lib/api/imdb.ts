@@ -1,7 +1,7 @@
 import { ImdbMovieResponse } from "@/app/api/imdb-top-250/[slug]/route";
 import { ImdbTop250Request, ImdbTop250Response } from "@/app/api/imdb-top-250/route";
 
-const BASE_URL = "http://localhost:3000";
+const BASE_URL = process.env.BASE_URL;
 
 export const getImdbTop250 = async ({ q }: ImdbTop250Request = {}): Promise<ImdbTop250Response> => {
   const url = new URL(`${BASE_URL}/api/imdb-top-250`);
