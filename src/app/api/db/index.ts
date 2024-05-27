@@ -1,14 +1,24 @@
 import data from "./data.json";
 import { ImdbMovie } from "./types";
 
+const delay = <T>(value: T, ms: number): Promise<T> => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(value);
+    }, ms);
+  });
+};
+
 class ImdbTop250 {
-  findAll(q?: string): Array<ImdbMovie> {
+  findAll(q?: string): Promise<Array<ImdbMovie>> {
     const sortByRating = (a: ImdbMovie, b: ImdbMovie) => a.rating - b.rating;
+
+    const delayTime = 2000;
 
     if (!q) {
       const sorted = [...data];
       sorted.sort(sortByRating);
-      return sorted;
+      return delay(sorted, delayTime);
     }
 
     const query = q.toLowerCase();
@@ -32,7 +42,7 @@ class ImdbTop250 {
     });
     filtered.sort(sortByRating);
 
-    return filtered;
+    return delay(filtered, delayTime);
   }
 
   findBySlug(slug: string): ImdbMovie | undefined {
